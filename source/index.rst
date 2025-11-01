@@ -24,6 +24,8 @@ What You'll Find Here
    :maxdepth: 2
    :caption: Contents
 
+   projects
+
 About This Site
 ---------------
 
