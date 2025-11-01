@@ -14,8 +14,6 @@ release = '1.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-master_doc = 'main/index'
-
 extensions = []
 
 templates_path = ['_templates']

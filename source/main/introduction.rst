@@ -26,20 +26,6 @@ About This Site
 This documentation is continuously updated as I explore new areas in 
 cybersecurity. Feel free to explore and learn from the content shared here.
 
-.. toctree::
-   :maxdepth: 3
-   :caption: Getting Started
-   :hidden:
-   
-   Introduction <self>
-
-.. toctree::
-   :maxdepth: 3
-   :caption: Contents
-   :hidden:
-
-   projects
-
 .. Indices and tables
    ==================
 
