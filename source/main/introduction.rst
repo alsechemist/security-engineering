@@ -3,8 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Security Engineering's documentation!
-------------------------------------------------
+Introduction
+============
+
+Welcome!
 
 This documentation site is a collection of my research, projects, and findings 
 in the field of cybersecurity. Here you'll find practical insights, technical 
