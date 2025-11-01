@@ -31,6 +31,13 @@ Security Operations
 
 .. toctree::
    :maxdepth: 3
+   :caption: Getting Started
+   :hidden:
+   
+   Introduction <self>
+
+.. toctree::
+   :maxdepth: 3
    :caption: Contents
    :hidden:
 
