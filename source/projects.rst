@@ -28,3 +28,10 @@ Security Operations
 .. note::
    More projects will be added as I continue my work in security engineering.
    Check back regularly for updates!
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Contents
+   :hidden:
+
+   projects

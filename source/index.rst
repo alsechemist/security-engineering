@@ -28,6 +28,13 @@ cybersecurity. Feel free to explore and learn from the content shared here.
 
 .. toctree::
    :maxdepth: 3
+   :caption: Getting Started
+   :hidden:
+   
+   Introduction <self>
+
+.. toctree::
+   :maxdepth: 3
    :caption: Contents
    :hidden:
 
