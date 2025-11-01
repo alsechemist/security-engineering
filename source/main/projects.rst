@@ -8,7 +8,7 @@ and lessons learned.
 Featured Projects
 -----------------
 
-* :doc:`Wazuh & Tracecat Integration </projects/wazuh-tracecat>` - SIEM and SOAR integration for automated incident response
+* :doc:`Wazuh & Tracecat Integration </projects/wazuh-tracecat-integration>` - SIEM and SOAR integration for automated incident response
 
 .. note::
    More projects will be added as I continue my work in security engineering.
