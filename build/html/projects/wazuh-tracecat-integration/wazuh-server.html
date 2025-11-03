@@ -100,7 +100,7 @@
 It’s a very simple configuration, we only need to change one parameter. By default, the <code class="docutils literal notranslate"><span class="pre">network.host</span></code> parameter is set to <strong>127.0.0.1</strong>,
 which means the API is only accessible within the <code class="docutils literal notranslate"><span class="pre">localhost</span></code> itself. Tracecat won’t be able to access the API if it’s <code class="docutils literal notranslate"><span class="pre">localhost</span></code> only,
 for that it is recommended to set the parameter to,</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>network.host:<span class="w"> </span>&quot;0.0.0.0&quot;
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.0.0.0&quot;</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -143,7 +143,7 @@ via clicking on the hyperlink. These are all available at your Linux, Windows an
 <p>This will execute the active response script.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Make sure the above code are under <cite>&lt;ossec_config&gt; * &lt;/ossec_config&gt;</cite> block. You can also put under a separate <strong>ossec_config</strong> block at
+<p>Make sure the above code are under <code class="docutils literal notranslate"><span class="pre">&lt;ossec_config&gt;</span> <span class="pre">*</span> <span class="pre">&lt;/ossec_config&gt;</span></code> block. You can also put under a separate <strong>ossec_config</strong> block at
 the last of the configuration file for tracing and managing it a bit more conveniently.</p>
 </div>
 </section>

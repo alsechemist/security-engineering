@@ -6,7 +6,7 @@ It's a very simple configuration, we only need to change one parameter. By defau
 which means the API is only accessible within the ``localhost`` itself. Tracecat won't be able to access the API if it's ``localhost`` only, 
 for that it is recommended to set the parameter to,
 
-.. code-block:: xml
+.. code-block:: yaml
 
     network.host: "0.0.0.0"
 
@@ -65,5 +65,5 @@ This will execute the active response script.
 
 .. note::
 
-    Make sure the above code are under `<ossec_config> * </ossec_config>` block. You can also put under a separate **ossec_config** block at 
+    Make sure the above code are under ``<ossec_config> * </ossec_config>`` block. You can also put under a separate **ossec_config** block at 
     the last of the configuration file for tracing and managing it a bit more conveniently.
