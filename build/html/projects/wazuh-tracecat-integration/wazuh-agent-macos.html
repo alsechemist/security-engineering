@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configurations of Servers &mdash; Security Engineering 1.0 documentation</title>
+  <title>Wazuh Agent: macOS &mdash; Security Engineering 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=86f27845" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=8f9e6779" />
@@ -21,8 +21,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Wazuh Server" href="wazuh-server.html" />
-    <link rel="prev" title="Architecture" href="architecture.html" /> 
+    <link rel="next" title="Overview: Tracecat Server" href="overview-tracecat-server.html" />
+    <link rel="prev" title="Wazuh Server" href="wazuh-server.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,9 +61,9 @@
 <li class="toctree-l2"><a class="reference internal" href="what-we-will-learn.html">What We’ll Learn?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scope-of-engagement.html">Scope of Engagement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="architecture.html">Architecture</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Configurations of Servers</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="configuration-of-servers.html">Configurations of Servers</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="wazuh-server.html">Wazuh Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="wazuh-agent-macos.html">Wazuh Agent: macOS</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Wazuh Agent: macOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="overview-tracecat-server.html">Overview: Tracecat Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prerequisite.html">Prerequisite</a></li>
 </ul>
@@ -87,9 +87,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="introduction.html">Introduction</a></li>
-      <li class="breadcrumb-item active">Configurations of Servers</li>
+          <li class="breadcrumb-item"><a href="configuration-of-servers.html">Configurations of Servers</a></li>
+      <li class="breadcrumb-item active">Wazuh Agent: macOS</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/projects/wazuh-tracecat-integration/configuration-of-servers.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/projects/wazuh-tracecat-integration/wazuh-agent-macos.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -97,25 +98,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="configurations-of-servers">
-<h1>Configurations of Servers<a class="headerlink" href="#configurations-of-servers" title="Link to this heading"></a></h1>
-<p>Now let’s get started with the main work. We will be working with <strong>2 servers</strong> and <strong>1 specific agent</strong>.
-They are as follows:</p>
-<ul class="simple">
-<li><p><strong>Wazuh Server</strong></p></li>
-<li><p><strong>Wazuh Agent</strong> – <em>(macOS Endpoint)</em></p></li>
-<li><p><strong>Tracecat Server</strong></p></li>
-</ul>
-<div class="toctree-wrapper compound">
+  <section id="wazuh-agent-macos">
+<h1>Wazuh Agent: macOS<a class="headerlink" href="#wazuh-agent-macos" title="Link to this heading"></a></h1>
+<p>While wazuh agents of Linux and Windows are pre-configured to log active response logs, agents of the macOS devices however not pre-configured as so.
+That’s why, now we will be configuring the macOS agent to log the active response logs.</p>
+<p>Head towards your macOS agent configuration file, you will find it at <code class="docutils literal notranslate"><span class="pre">/Library/Ossec/etc/ossec.conf</span></code> path of your macOS device.
+And this code block under <code class="docutils literal notranslate"><span class="pre">&lt;ossec_config&gt;</span> <span class="pre">*</span> <span class="pre">&lt;/ossec_config&gt;</span></code>, if it’s not present.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;localfile&gt;</span>
+<span class="w">    </span><span class="nt">&lt;log_format&gt;</span>syslog<span class="nt">&lt;/log_format&gt;</span>
+<span class="w">    </span><span class="nt">&lt;location&gt;</span>/var/ossec/logs/active-responses.log<span class="nt">&lt;/location&gt;</span>
+<span class="nt">&lt;/localfile&gt;</span>
+</pre></div>
 </div>
+<p>Now, the Wazuh Agent will read logs from the <code class="docutils literal notranslate"><span class="pre">active-responses.log</span></code>.</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="architecture.html" class="btn btn-neutral float-left" title="Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="wazuh-server.html" class="btn btn-neutral float-right" title="Wazuh Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="wazuh-server.html" class="btn btn-neutral float-left" title="Wazuh Server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="overview-tracecat-server.html" class="btn btn-neutral float-right" title="Overview: Tracecat Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

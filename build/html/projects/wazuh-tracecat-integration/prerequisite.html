@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configurations of Servers &mdash; Security Engineering 1.0 documentation</title>
+  <title>Prerequisite &mdash; Security Engineering 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=86f27845" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=8f9e6779" />
@@ -21,8 +21,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Wazuh Server" href="wazuh-server.html" />
-    <link rel="prev" title="Architecture" href="architecture.html" /> 
+    <link rel="prev" title="Overview: Tracecat Server" href="overview-tracecat-server.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,11 +60,11 @@
 <li class="toctree-l2"><a class="reference internal" href="what-we-will-learn.html">What We’ll Learn?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scope-of-engagement.html">Scope of Engagement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="architecture.html">Architecture</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Configurations of Servers</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="configuration-of-servers.html">Configurations of Servers</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="wazuh-server.html">Wazuh Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wazuh-agent-macos.html">Wazuh Agent: macOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="overview-tracecat-server.html">Overview: Tracecat Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prerequisite.html">Prerequisite</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Prerequisite</a></li>
 </ul>
 </li>
 </ul>
@@ -87,9 +86,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="introduction.html">Introduction</a></li>
-      <li class="breadcrumb-item active">Configurations of Servers</li>
+          <li class="breadcrumb-item"><a href="configuration-of-servers.html">Configurations of Servers</a></li>
+      <li class="breadcrumb-item active">Prerequisite</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/projects/wazuh-tracecat-integration/configuration-of-servers.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/projects/wazuh-tracecat-integration/prerequisite.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -97,25 +97,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="configurations-of-servers">
-<h1>Configurations of Servers<a class="headerlink" href="#configurations-of-servers" title="Link to this heading"></a></h1>
-<p>Now let’s get started with the main work. We will be working with <strong>2 servers</strong> and <strong>1 specific agent</strong>.
-They are as follows:</p>
-<ul class="simple">
-<li><p><strong>Wazuh Server</strong></p></li>
-<li><p><strong>Wazuh Agent</strong> – <em>(macOS Endpoint)</em></p></li>
-<li><p><strong>Tracecat Server</strong></p></li>
-</ul>
-<div class="toctree-wrapper compound">
-</div>
+  <section id="prerequisite">
+<h1>Prerequisite<a class="headerlink" href="#prerequisite" title="Link to this heading"></a></h1>
+<p>Before getting started, we will be requiring to set some Credentials on our Tracecat Server. On the landing page of your Tracecat Server,
+you will notice the <strong>Credentials</strong> section under Workspace. You need to add the credentials of <strong>`wazuh-wui`</strong> user and
+a user that has access to Wazuh’s Indexers (e.g. <strong>A Wazuh Admin</strong>). You can obtain it by following the <a class="reference external" href="https://documentation.wazuh.com/current/quickstart.html">Quick Start</a>
+section of Wazuh’s Official Documentation Page.</p>
+<p><strong>Setting up the</strong> <code class="docutils literal notranslate"><span class="pre">wazuh-wui</span></code> <strong>Credentials:</strong> Select <strong>Add Credentials</strong> and set these two parameters exactly as it is and in the exact same order.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">WAZUH_WUI_PASSWORD</span></code>: Fill the parameter with the same password of your <strong>wazuh-wui</strong> user.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAZUH_WUI_USERNAME</span></code>: Fill this parameter with the same name of your <strong>wazuh-wui</strong>, which is <strong>wazuh-wui</strong> itself by default.</p></li>
+</ol>
+<img alt="Tracecat Server Credential setup" class="align-center" src="../../_images/tracecat-server-credential-1.png" />
+<p><strong>Setting up the Credentials for Wazuh Indexer API Server:</strong> The user <strong>wazuh-wui</strong> is not authorized to access the Wazuh Indexers.
+That’s why we will be needing a user who has access to it. The right and most easy choice would be a <strong>Wazuh Admin</strong> itself.
+Add the credentials in the same way. For the below parameters, the naming convention and order are not required to be the exact since
+they are optional and are being added on demand.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">WAZUH_INDEXER_USERNAME</span></code>: Fill the parameter with the same username of your Wazuh Admin user.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAZUH_INDEXER_PASSWORD</span></code>: Fill this parameter with the same password of your Wazuh Admin.</p></li>
+</ol>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="architecture.html" class="btn btn-neutral float-left" title="Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="wazuh-server.html" class="btn btn-neutral float-right" title="Wazuh Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="overview-tracecat-server.html" class="btn btn-neutral float-left" title="Overview: Tracecat Server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
