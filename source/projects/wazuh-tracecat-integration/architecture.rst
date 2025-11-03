@@ -23,7 +23,7 @@ Architecture Diagram
 
 Below is the architecture of the Wazuh and Tracecat integration:
 
-.. image:: ../../assets/images/wazuh-tracecat-integration/achitecture-wazuh-tracecat-integration.svg
+.. image:: ../../assets/images/wazuh-tracecat-integration/architecture-wazuh-tracecat-integration.png
    :alt: Wazuh and Tracecat Integration Architecture
    :align: center
 
