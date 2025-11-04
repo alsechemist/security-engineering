@@ -16,3 +16,4 @@ They are as follows:
    ../../projects/wazuh-tracecat-integration/wazuh-agent-macos
    ../../projects/wazuh-tracecat-integration/overview-tracecat-server
    ../../projects/wazuh-tracecat-integration/prerequisite
+   ../../projects/wazuh-tracecat-integration/tracecat-server-components

@@ -31,6 +31,6 @@ html_static_path = ['_static']
 
 # -- Options for Copy Button -------------------------------------------------
 
-copybutton_prompt_text = r">>> |\$ "
+copybutton_prompt_text = r">>> |\.\.\. |\$ |# "
 copybutton_prompt_is_regexp = True
 copybutton_only_copy_prompt_lines = False
