@@ -64,9 +64,14 @@
 <li class="toctree-l2 current"><a class="reference internal" href="configuration-of-servers.html">Configurations of Servers</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="wazuh-server.html">Wazuh Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wazuh-agent-macos.html">Wazuh Agent: macOS</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Overview: Tracecat Server</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Overview: Tracecat Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workflow-overview">Workflow Overview</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="prerequisite.html">Prerequisite</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tracecat-server-components.html">Tracecat Server Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="efficient-workflow-execution.html">Efficient Workflow Execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conditional-executions-of-the-active-response-components.html">Conditional Executions of The Active Response Components</a></li>
 </ul>
 </li>
 </ul>
@@ -109,9 +114,12 @@ complete our full setup on our Tracecat Server. They are as follows:</p>
 <li><p><strong>core.http_request:</strong> This component here will be sending the http requests to the Wazuh API servers for serving our cause. And we will be needing the <code class="docutils literal notranslate"><span class="pre">JWT</span> <span class="pre">Token</span></code> for that every time.</p></li>
 </ul>
 <p>These are available by default on Tracecat.</p>
-<p><strong>Workflow Overview:</strong> To give you a glimpse, this what it will look like on our workflow.</p>
+<section id="workflow-overview">
+<h2>Workflow Overview<a class="headerlink" href="#workflow-overview" title="Link to this heading"></a></h2>
+<p>To give you a glimpse, this what it will look like on our workflow.</p>
 <img alt="Tracecat Server Overview" class="align-center" src="../../_images/tracecat-server-overview.png" />
 <div style="height:50px;"></div></section>
+</section>
 
 
            </div>

@@ -62,11 +62,18 @@
 <li class="toctree-l2"><a class="reference internal" href="scope-of-engagement.html">Scope of Engagement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="architecture.html">Architecture</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="configuration-of-servers.html">Configurations of Servers</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Wazuh Server</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Wazuh Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wazuh-indexer-api">Wazuh Indexer API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wazuh-active-response">Wazuh Active Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-active-response-for-macos-devices-at-wazuh-manager">Configuring Active Response for macOS Devices at Wazuh Manager</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="wazuh-agent-macos.html">Wazuh Agent: macOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="overview-tracecat-server.html">Overview: Tracecat Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prerequisite.html">Prerequisite</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tracecat-server-components.html">Tracecat Server Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="efficient-workflow-execution.html">Efficient Workflow Execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conditional-executions-of-the-active-response-components.html">Conditional Executions of The Active Response Components</a></li>
 </ul>
 </li>
 </ul>
@@ -101,7 +108,13 @@
              
   <section id="wazuh-server">
 <h1>Wazuh Server<a class="headerlink" href="#wazuh-server" title="Link to this heading"></a></h1>
-<p><strong>Wazuh Indexer API:</strong> At first lets start with configuring Wazuh Indexer API. You will find the configuration file at <code class="docutils literal notranslate"><span class="pre">/etc/wazuh-indexer/opensearch.yml</span></code> of your Wazuh Server.
+<p>The Wazuh Server acts as the central component within the Wazuh architecture, responsible for managing agents, collecting security data, and
+correlating alerts. It coordinates with the Wazuh Indexer and Dashboard to provide a unified security monitoring environment.
+Before configuring the Wazuh Indexer API or Active Response, it’s essential to ensure that the Wazuh Server is properly set up and
+synchronized with all endpoints.</p>
+<section id="wazuh-indexer-api">
+<h2>Wazuh Indexer API<a class="headerlink" href="#wazuh-indexer-api" title="Link to this heading"></a></h2>
+<p>At first lets start with configuring Wazuh Indexer API. You will find the configuration file at <code class="docutils literal notranslate"><span class="pre">/etc/wazuh-indexer/opensearch.yml</span></code> of your Wazuh Server.
 It’s a very simple configuration, we only need to change one parameter. By default, the <code class="docutils literal notranslate"><span class="pre">network.host</span></code> parameter is set to <strong>127.0.0.1</strong>,
 which means the API is only accessible within the <code class="docutils literal notranslate"><span class="pre">localhost</span></code> itself. Tracecat won’t be able to access the API if it’s <code class="docutils literal notranslate"><span class="pre">localhost</span></code> only,
 for that it is recommended to set the parameter to,</p>
@@ -114,11 +127,17 @@ for that it is recommended to set the parameter to,</p>
 That’s why it is recommended to set the parameter to be able to be accessible from every network interface of local machine.
 If you have more than 2 network interfaces, have it your way of configuring it through about how you would like to give access.</p>
 </div>
-<p><strong>Wazuh Active Response:</strong> Now lets configure Wazuh’s Active Response at your Wazuh Server. To get started it’s already available on <a class="reference external" href="https://documentation.wazuh.com/current/user-manual/capabilities/active-response/ar-use-cases/blocking-ssh-brute-force.html">Wazuh’s Offical Documentation</a> site.
+</section>
+<section id="wazuh-active-response">
+<h2>Wazuh Active Response<a class="headerlink" href="#wazuh-active-response" title="Link to this heading"></a></h2>
+<p>Now lets configure Wazuh’s Active Response at your Wazuh Server. To get started it’s already available on <a class="reference external" href="https://documentation.wazuh.com/current/user-manual/capabilities/active-response/ar-use-cases/blocking-ssh-brute-force.html">Wazuh’s Offical Documentation</a> site.
 Wazuh has already pretty much configured their active response for their Linux and Windows endpoint.
 An extensive documentation and community support can be found as well.
 But here we are going to focus more on <strong>macOS</strong> endpoints as a bit of configuration is need in order for the active response to work properly.</p>
-<p><strong>Configuring Active Response for macOS Devices at Wazuh Manager:</strong> Go to your Wazuh Server, you can make changes at your manager node both via Wazuh Web GUI and
+</section>
+<section id="configuring-active-response-for-macos-devices-at-wazuh-manager">
+<h2>Configuring Active Response for macOS Devices at Wazuh Manager<a class="headerlink" href="#configuring-active-response-for-macos-devices-at-wazuh-manager" title="Link to this heading"></a></h2>
+<p>Go to your Wazuh Server, you can make changes at your manager node both via Wazuh Web GUI and
 by finding the configuration file at <code class="docutils literal notranslate"><span class="pre">/var/ossec/etc/ossec.conf</span></code>, make sure you have <code class="docutils literal notranslate"><span class="pre">sudo</span></code> privileges before accessing through terminal.
 But it more recommended that you access via the Web GUI as it’s more easily manageable and accessible. Follow <code class="docutils literal notranslate"><span class="pre">Server</span> <span class="pre">management</span> <span class="pre">→</span> <span class="pre">Settings</span> <span class="pre">→</span> <span class="pre">Edit</span> <span class="pre">configuration</span></code>.
 There you have to look out for something like <code class="docutils literal notranslate"><span class="pre">&lt;!--</span> <span class="pre">Active</span> <span class="pre">response</span> <span class="pre">--&gt;</span></code>, in that specific section you will notice various active response scripts as shown in the below image:</p>
@@ -151,6 +170,7 @@ via clicking on the hyperlink. These are all available at your Linux, Windows an
 <p>Make sure the above code are under <code class="docutils literal notranslate"><span class="pre">&lt;ossec_config&gt;</span> <span class="pre">*</span> <span class="pre">&lt;/ossec_config&gt;</span></code> block. You can also put under a separate <strong>ossec_config</strong> block at
 the last of the configuration file for tracing and managing it a bit more conveniently.</p>
 </div>
+</section>
 </section>
 
 

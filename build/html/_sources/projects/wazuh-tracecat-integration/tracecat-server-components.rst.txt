@@ -6,7 +6,10 @@ I will try to simply explain what we are trying to achieve through these compone
 input tab asking you to fill up the given required fields. So instead of explaining each field, I will directly focus on its `YAML` configuration to 
 explain what we are trying to achieve by setting the parameters.
 
-- **tool.wazuh.get_access_token (Wazuh_API):** Go to the ``YAML`` tab. Copy and paste the below code block:
+tools.wazuh.get_access_token (Wazuh API)
+----------------------------------------
+
+Go to the ``YAML`` tab. Copy and paste the below code block:
 
 .. code-block:: yaml
 
@@ -23,7 +26,10 @@ The below code just sends a https request to the Wazuh Server API. At backend, t
 
    <div style="height:25px;"></div>
 
-- **core.http_request (Wazuh_Indexer_Logs):** Go to the YAML tab. Copy and paste the below code block:
+core.http_request (Wazuh_Indexer_Logs)
+--------------------------------------
+
+Go to the YAML tab. Copy and paste the below code block:
 
 .. code-block:: yaml
 
@@ -66,7 +72,10 @@ And, It will so up to 10 unique sets of data if available. You can set the time,
 
    <div style="height:25px;"></div>
 
-- **core.http_request (Wazuh_Server_Logs):** This is an **optional** component in this workflow kept,
+core.http_request (Wazuh_Server_Logs)
+-------------------------------------
+
+This is an **optional** component in this workflow kept,
     to demonstrate the possibilities you can leverage by accessing the Wazuh Server API. 
     You can visit Wazuh's `Server API Reference <https://documentation.wazuh.com/current/user-manual/api/reference.html>`_
     to know how you can utilize it to the fullest. Go to the ``YAML`` tab. Copy and paste the below code block:
@@ -90,7 +99,10 @@ The above code contacts the **Wazuh Server API** with collected JWT Token for fe
 
    <div style="height:25px;"></div>
 
-- **core.http_request (Active Response for Linux):** Go to the YAML tab. Copy and paste the below code block:
+core.http_request (Active Response for Linux)
+---------------------------------------------
+
+Go to the YAML tab. Copy and paste the below code block:
 
 .. code-block:: yaml
 
@@ -129,7 +141,10 @@ statically based on the ``agent.id`` found on your wazuh server.
    <div style="height:25px;"></div>
 
 
-- **core.http_request (Active Response for Windows):** Go to the YAML tab. Copy and paste the below code block:
+core.http_request (Active Response for Windows)
+-----------------------------------------------
+
+Go to the YAML tab. Copy and paste the below code block:
 
 .. code-block:: yaml
 
@@ -166,7 +181,10 @@ You can also set the list of windows agents you want the script to run on dynami
 
    <div style="height:25px;"></div>
 
-- **ore.http_request (Active Response for macOS):** Go to the YAML tab. Copy and paste the below code block:
+core.http_request (Active Response for macOS)
+---------------------------------------------
+
+Go to the YAML tab. Copy and paste the below code block:
 
 .. code-block:: yaml
 
@@ -206,7 +224,7 @@ run on dynamically or statically based on the ``agent.id`` found on your wazuh s
 
 .. tip::
     
-    Replace the **`[Wazuh_Sever_IP]`** with your actual Wazuh Sever IP. The default port for the Wazuh Server API is 55000 and the default port for the Wazuh Indexer API is 9200.
+    Replace the ``[Wazuh_Sever_IP]`` with your actual Wazuh Sever IP. The default port for the Wazuh Server API is 55000 and the default port for the Wazuh Indexer API is 9200.
 
 .. note::
     Inside the above code blocks you will notice some variables/expressions under ``${{ [JSON_PATH] }}``. 
@@ -215,13 +233,9 @@ run on dynamically or statically based on the ``agent.id`` found on your wazuh s
     This is helpful if you want the parameters of your ``YAML`` configuration to be defined dynamically. 
     An image has been attached for your reference.
 
-.. image:: ../../assets/images/wazuh-tracecat-integration/tracecat-server-workflow-contifiguration-7.png
-    :alt: Tracecat Server JSON Path Reference
-    :align: center
-
-.. raw:: html
-
-   <div style="height:25px;"></div>
+    .. image:: ../../assets/images/wazuh-tracecat-integration/tracecat-server-workflow-contifiguration-7.png
+        :alt: Tracecat Server JSON Path Reference
+        :align: center
 
 .. warning::
     The JSON paths in the above code blocks are just like variables named after the naming convention of the Title given to each component. 

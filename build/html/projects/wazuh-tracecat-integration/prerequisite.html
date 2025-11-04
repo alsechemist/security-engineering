@@ -65,8 +65,14 @@
 <li class="toctree-l3"><a class="reference internal" href="wazuh-server.html">Wazuh Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wazuh-agent-macos.html">Wazuh Agent: macOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="overview-tracecat-server.html">Overview: Tracecat Server</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Prerequisite</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Prerequisite</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-the-wazuh-wui-credentials">Setting up the wazuh-wui Credentials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-the-credentials-for-wazuh-indexer-api-server">Setting up the Credentials for Wazuh Indexer API Server</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="tracecat-server-components.html">Tracecat Server Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="efficient-workflow-execution.html">Efficient Workflow Execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conditional-executions-of-the-active-response-components.html">Conditional Executions of The Active Response Components</a></li>
 </ul>
 </li>
 </ul>
@@ -105,16 +111,20 @@
 you will notice the <strong>Credentials</strong> section under Workspace. You need to add the credentials of <strong>`wazuh-wui`</strong> user and
 a user that has access to Wazuh’s Indexers (e.g. <strong>A Wazuh Admin</strong>). You can obtain it by following the <a class="reference external" href="https://documentation.wazuh.com/current/quickstart.html">Quick Start</a>
 section of Wazuh’s Official Documentation Page.</p>
-<p><strong>Setting up the</strong> <code class="docutils literal notranslate"><span class="pre">wazuh-wui</span></code> <strong>Credentials:</strong> Select <strong>Add Credentials</strong> and set these two parameters exactly as it is and in the exact same order.</p>
+<section id="setting-up-the-wazuh-wui-credentials">
+<h2>Setting up the wazuh-wui Credentials<a class="headerlink" href="#setting-up-the-wazuh-wui-credentials" title="Link to this heading"></a></h2>
+<p>Select <strong>Add Credentials</strong> and set these two parameters exactly as it is and in the exact same order.</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">WAZUH_WUI_PASSWORD</span></code>: Fill the parameter with the same password of your <strong>wazuh-wui</strong> user.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">WAZUH_WUI_USERNAME</span></code>: Fill this parameter with the same name of your <strong>wazuh-wui</strong>, which is <strong>wazuh-wui</strong> itself by default.</p></li>
 </ol>
 <img alt="Tracecat Server Credential - Wazuh WUI User's Credential Setup" class="align-center" src="../../_images/tracecat-server-credential-1.png" />
-<p><strong>Setting up the Credentials for Wazuh Indexer API Server:</strong> The user <strong>wazuh-wui</strong> is not authorized to access the Wazuh Indexers.
-That’s why we will be needing a user who has access to it. The right and most easy choice would be a <strong>Wazuh Admin</strong> itself.
-Add the credentials in the same way. For the below parameters, the naming convention and order are not required to be the exact since
-they are optional and are being added on demand.</p>
+<div style="height:25px;"></div></section>
+<section id="setting-up-the-credentials-for-wazuh-indexer-api-server">
+<h2>Setting up the Credentials for Wazuh Indexer API Server<a class="headerlink" href="#setting-up-the-credentials-for-wazuh-indexer-api-server" title="Link to this heading"></a></h2>
+<p>The user <strong>wazuh-wui</strong> is not authorized to access the Wazuh Indexers. That’s why we will be needing a user who has access to it.
+The right and most easy choice would be a <strong>Wazuh Admin</strong> itself. Add the credentials in the same way. For the below parameters,
+the naming convention and order are not required to be the exact since they are optional and are being added on demand.</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">WAZUH_INDEXER_USERNAME</span></code>: Fill the parameter with the same username of your Wazuh Admin user.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">WAZUH_INDEXER_PASSWORD</span></code>: Fill this parameter with the same password of your Wazuh Admin.</p></li>
@@ -128,6 +138,7 @@ in order to have it again. Besides, If you change the <strong>wazuh-wui</strong>
 if you change the <strong>admin</strong> password, you must update it in Filebeat and the Wazuh server.
 Follow Wazuh’s <a class="reference external" href="https://documentation.wazuh.com/current/user-manual/user-administration/password-management.html">Password Management</a> guide to know more.</p>
 </div>
+</section>
 </section>
 
 

@@ -10,7 +10,10 @@ complete our full setup on our Tracecat Server. They are as follows:
 
 These are available by default on Tracecat.
 
-**Workflow Overview:** To give you a glimpse, this what it will look like on our workflow.
+Workflow Overview
+-----------------
+
+To give you a glimpse, this what it will look like on our workflow.
 
 .. image:: ../../assets/images/wazuh-tracecat-integration/tracecat-server-overview.png
     :alt: Tracecat Server Overview

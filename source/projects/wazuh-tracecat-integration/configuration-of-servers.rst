@@ -17,3 +17,5 @@ They are as follows:
    ../../projects/wazuh-tracecat-integration/overview-tracecat-server
    ../../projects/wazuh-tracecat-integration/prerequisite
    ../../projects/wazuh-tracecat-integration/tracecat-server-components
+   ../../projects/wazuh-tracecat-integration/efficient-workflow-execution
+   ../../projects/wazuh-tracecat-integration/conditional-executions-of-the-active-response-components
