@@ -16,3 +16,4 @@ Wazuh for comprehensive security monitoring and Tracecat for intelligent securit
    ../../projects/wazuh-tracecat-integration/scope-of-engagement
    ../../projects/wazuh-tracecat-integration/architecture
    ../../projects/wazuh-tracecat-integration/configuration-of-servers
+   ../../projects/wazuh-tracecat-integration/proof-of-concept
