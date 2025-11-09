@@ -19,3 +19,4 @@ They are as follows:
    ../../projects/wazuh-tracecat-integration/tracecat-server-components
    ../../projects/wazuh-tracecat-integration/efficient-workflow-execution
    ../../projects/wazuh-tracecat-integration/conditional-executions-of-the-active-response-components
+   ../../projects/wazuh-tracecat-integration/automated-runs

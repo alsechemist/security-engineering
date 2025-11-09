@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What We’ll Learn? &mdash; Security Engineering 1.0 documentation</title>
+  <title>Automated Runs &mdash; Security Engineering 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=86f27845" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=8f9e6779" />
@@ -21,8 +21,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Scope of Engagement" href="scope-of-engagement.html" />
-    <link rel="prev" title="The Power of Integration" href="the-power-of-integration.html" /> 
+    <link rel="next" title="Proof of Concept" href="proof-of-concept.html" />
+    <link rel="prev" title="Conditional Executions of The Active Response Components" href="conditional-executions-of-the-active-response-components.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,10 +58,23 @@
 <li class="toctree-l2"><a class="reference internal" href="what-is-wazuh.html">What is Wazuh?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="what-is-tracecat.html">What is Tracecat?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="the-power-of-integration.html">The Power of Integration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">What We’ll Learn?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-we-will-learn.html">What We’ll Learn?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scope-of-engagement.html">Scope of Engagement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="architecture.html">Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-of-servers.html">Configurations of Servers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuration-of-servers.html">Configurations of Servers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wazuh-server.html">Wazuh Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wazuh-agent-macos.html">Wazuh Agent: macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview-tracecat-server.html">Overview: Tracecat Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prerequisite.html">Prerequisite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tracecat-server-components.html">Tracecat Server Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="efficient-workflow-execution.html">Efficient Workflow Execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conditional-executions-of-the-active-response-components.html">Conditional Executions of The Active Response Components</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Automated Runs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-scheduled-runs">Setting Up Scheduled Runs</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="proof-of-concept.html">Proof of Concept</a></li>
 <li class="toctree-l2"><a class="reference internal" href="conclusion.html">Conclusion</a></li>
 </ul>
@@ -83,9 +96,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="introduction.html">Introduction</a></li>
-      <li class="breadcrumb-item active">What We’ll Learn?</li>
+          <li class="breadcrumb-item"><a href="configuration-of-servers.html">Configurations of Servers</a></li>
+      <li class="breadcrumb-item active">Automated Runs</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/projects/wazuh-tracecat-integration/what-we-will-learn.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/projects/wazuh-tracecat-integration/automated-runs.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -93,27 +107,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="what-we-ll-learn">
-<h1>What We’ll Learn?<a class="headerlink" href="#what-we-ll-learn" title="Link to this heading"></a></h1>
-<p>Through this comprehensive guide, you’ll master the essential skills needed to create a seamless integration between Wazuh and Tracecat.
-This tutorial will take you through each step of building automated security responses, from basic connections to advanced threat mitigation.</p>
-<ul class="simple">
-<li><p><strong>Connect Wazuh Indexer API:</strong> Establish programmatic access to Wazuh’s security data repository for querying logs and events</p></li>
-<li><p><strong>Connect Wazuh Server API:</strong> Set up communication with Wazuh’s management interface to trigger actions and retrieve system information</p></li>
-<li><p><strong>Query Specific Wazuh Indexer Logs:</strong> Learn to construct targeted searches to extract relevant security events and build context for investigations</p></li>
-<li><p><strong>Utilize Wazuh’s Active Response:</strong> Configure and trigger automated protective actions through Tracecat workflows when threats are detected</p></li>
-<li><p><strong>Block SSH Brute Force Attack using Wazuh’s Active Response:</strong> Implement a complete automated defense against brute force attacks as a practical demonstration</p></li>
-</ul>
-<p>By the end of this guide, you’ll have the knowledge and practical skills to create sophisticated security automation workflows that leverage the strengths of both platforms,
-ultimately building a more resilient and responsive security infrastructure.</p>
+  <section id="automated-runs">
+<h1>Automated Runs<a class="headerlink" href="#automated-runs" title="Link to this heading"></a></h1>
+<p>After coming all this way far, there could be one question that may appear in our minds that,
+<strong>“Do we really need to run the workflow manually like this every time?”</strong></p>
+<p>Well hopefully, the answer is <strong>NO!</strong> We can actually set the workflow for scheduled runs, this will help regarding any workflow you create.
+Like any other SOAR Tracecat also, has its feature of scheduled workflow runs, where any workflow you set up, will run automatically after a
+specified period of time.</p>
+<section id="setting-up-scheduled-runs">
+<h2>Setting Up Scheduled Runs<a class="headerlink" href="#setting-up-scheduled-runs" title="Link to this heading"></a></h2>
+<p>In order to set up workflow scheduled runs, hit the <code class="docutils literal notranslate"><span class="pre">Trigger</span></code> component, and you will find it <code class="docutils literal notranslate"><span class="pre">Schedules</span></code> Tab at the last.</p>
+<img alt="Showcasing Where Schedules Module is" class="align-center" src="../../_images/automated-runs-1.png" />
+<div style="height:25px;"></div><p>Next, <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Schedule`</span></code> and before actually setting it up you will find that, it’s divided into <code class="docutils literal notranslate"><span class="pre">Years</span></code>, <code class="docutils literal notranslate"><span class="pre">Months</span></code>, <code class="docutils literal notranslate"><span class="pre">Days</span></code>, <code class="docutils literal notranslate"><span class="pre">Hours</span></code>, <code class="docutils literal notranslate"><span class="pre">Minutes</span></code> and <code class="docutils literal notranslate"><span class="pre">Seconds</span></code>.
+Feel free to set tinker with it and set it up as you like. As for our case, I have set the timer to <code class="docutils literal notranslate"><span class="pre">30</span> <span class="pre">Seconds</span></code>,
+which means the workflow will automatically run every <code class="docutils literal notranslate"><span class="pre">30</span> <span class="pre">Seconds</span></code> period.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="the-power-of-integration.html" class="btn btn-neutral float-left" title="The Power of Integration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="scope-of-engagement.html" class="btn btn-neutral float-right" title="Scope of Engagement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="conditional-executions-of-the-active-response-components.html" class="btn btn-neutral float-left" title="Conditional Executions of The Active Response Components" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="proof-of-concept.html" class="btn btn-neutral float-right" title="Proof of Concept" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
