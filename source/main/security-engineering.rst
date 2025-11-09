@@ -46,6 +46,8 @@ This space reflects my belief that true cybersecurity is not just about protecti
       Alsechemist — The Alchemy of Cybersecurity.
    </div>
 
+   <div style="height:25px;"></div>
+
 
 .. Indices and tables
    ==================
