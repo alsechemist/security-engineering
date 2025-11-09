@@ -7,7 +7,7 @@ All components were verified on the same environment to ensure compatibility and
 The following components were included in the testing scope:
 
 - **Wazuh Server** (Single Cluster) – Version 4.12  
-- **Tracecat Server**  
+- **Tracecat Server** - Version 0.42.0  
 - **Wazuh Agents – Linux** (Debian & RPM amd64-based)  
 - **Wazuh Agents – Windows** (Windows Server 2022)  
 - **Wazuh Agents – macOS** (Intel-based)
